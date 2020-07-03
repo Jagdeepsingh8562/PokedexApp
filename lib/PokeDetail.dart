@@ -108,10 +108,10 @@ class PokeDetail extends StatelessWidget {
           ],
         ),
       ),
-    floatingActionButton: FloatingActionButton.extended(onPressed: (){
+    // floatingActionButton: FloatingActionButton.extended(onPressed: (){
      
       
-    },icon: Icon(Icons.navigate_next,), label: Text('Evolve'),backgroundColor: Colors.red[600],),
+    // },icon: Icon(Icons.navigate_next,), label: Text('Evolve'),backgroundColor: Colors.red[600],),
 
     );
   }
