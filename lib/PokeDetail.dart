@@ -33,6 +33,7 @@ class PokeDetail extends StatelessWidget {
               ),SizedBox(height: 20,),
               Text('Weakness',style:TextStyle(fontSize: 18,)),SizedBox(height: 20,),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: pokemon.weaknesses.map((w) => FilterChip(label: Text(w,style: TextStyle(color: Colors.white,fontSize: 15),),backgroundColor: Colors.deepPurple, onSelected: (bool){})).toList(),
                 
@@ -72,7 +73,8 @@ class PokeDetail extends StatelessWidget {
             decoration: new BoxDecoration(
             color: Colors.red[400],
             boxShadow: [
-            new BoxShadow(blurRadius: 40.0)
+            new BoxShadow(blurRadius: 20.0)
+            
             ],
             borderRadius: new BorderRadius.vertical(
             bottom: new Radius.elliptical(
@@ -98,7 +100,7 @@ class PokeDetail extends StatelessWidget {
                     
                   ],
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 18,),
                 Text(pokemon.name,style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500,color: Colors.white)),
               ],
             ),
