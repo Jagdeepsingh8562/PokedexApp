@@ -10,45 +10,49 @@ class PokeDetail extends StatelessWidget {
     bodyWidget(BuildContext context)=>Stack(
       children: <Widget>[
         
-        Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18),
-          ),
-          
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        Container(
+          height: MediaQuery.of(context).size.height/1.5,
+          width: MediaQuery.of(context).size.width/1,
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18),
+            ),
             
-            children: <Widget>[
-              SizedBox(height: 150,),
-              //Text(pokemon.name,style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),SizedBox(height: 40,),
-              Text('Height:${pokemon.height}',style:TextStyle(fontSize: 18,)),SizedBox(height: 10,),
-              Text('Weight:${pokemon.weight}',style:TextStyle(fontSize: 18,)),SizedBox(height: 10,),
-              Text('Types',style:TextStyle(fontSize: 18,)),SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: pokemon.type.map((t) => FilterChip(label: Text(t,style:TextStyle(fontSize: 15,)),backgroundColor: Colors.amber, onSelected: (bool){})).toList(),
+            child: Column(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              
+              children: <Widget>[
+                SizedBox(height: 100,),
+                //Text(pokemon.name,style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),SizedBox(height: 40,),
+                Text('Height:${pokemon.height}',style:TextStyle(fontSize: 18,)),//SizedBox(height: 10,),
+                Text('Weight:${pokemon.weight}',style:TextStyle(fontSize: 18,)),//SizedBox(height: 10,),
+                Text('Types',style:TextStyle(fontSize: 18,)),//SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: pokemon.type.map((t) => FilterChip(label: Text(t,style:TextStyle(fontSize: 15,)),backgroundColor: Colors.amber, onSelected: (bool){})).toList(),
 
-                
-                
-              ),SizedBox(height: 20,),
-              Text('Weakness',style:TextStyle(fontSize: 18,)),SizedBox(height: 20,),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: pokemon.weaknesses.map((w) => FilterChip(label: Text(w,style: TextStyle(color: Colors.white,fontSize: 15),),backgroundColor: Colors.deepPurple, onSelected: (bool){})).toList(),
-                
-              ),
-              SizedBox(height: 50,),
-            ],
+                  
+                  
+                ),//SizedBox(height: 20,),
+                Text('Weakness',style:TextStyle(fontSize: 18,)),//SizedBox(height: 20,),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: pokemon.weaknesses.map((w) => FilterChip(label: Text(w,style: TextStyle(color: Colors.white,fontSize: 15),),backgroundColor: Colors.deepPurple, onSelected: (bool){})).toList(),
+                  
+                ),
+                //SizedBox(height: 50,),
+              ],
+            ),
           ),
         ),
         Positioned(
             left: 0,
             right: 10,
-            top: -20,
+            top: -10,
             child: Hero(tag: pokemon.img, child: Container(
-            height: 200,
-            width: 200,
+            height: 150,
+            width: 150,
             decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(pokemon.img)
             )
             ),
@@ -105,8 +109,8 @@ class PokeDetail extends StatelessWidget {
               ],
             ),
   ),      
-          Padding(padding:  EdgeInsets.fromLTRB(10, 50, 10, 10),child: bodyWidget(context),
-          ),
+          Padding(padding: EdgeInsets.only(top: 20),
+          child:bodyWidget(context),),
           ],
         ),
       ),
