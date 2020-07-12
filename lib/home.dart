@@ -3,8 +3,7 @@ import 'package:PokedexApp/PokeDetail.dart';
 import 'package:PokedexApp/Pokemon.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
-
+import 'package:flutter/services.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,7 +11,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var url ='https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json';
+  var url =
+      'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json';
 
   PokeHub pokeHub;
 
@@ -27,13 +27,17 @@ class _HomeState extends State<Home> {
     var decodedValue = jsonDecode(res.body);
     pokeHub = PokeHub.fromJson(decodedValue);
     print(pokeHub);
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.red));
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
@@ -48,50 +52,57 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-      body:pokeHub == null
+      body: pokeHub == null
           ? Center(
               child: CircularProgressIndicator(),
             )
-          :  GridView.count(
-          crossAxisCount: 2,
-          children: pokeHub.pokemon
-              .map((Pokemon poke) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>PokeDetail(
-                          pokemon: poke,
-                        )));
-                      },
-                        child: Card(
-                        color: Colors.grey[300],
-                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                           ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Hero(
-                               tag: poke.img,
-                               child: Container(
-                                height: 100.0,
-                                width: 100.0,
-                               decoration: BoxDecoration(
-                              image: DecorationImage(image: NetworkImage(poke.img))),
-                              ),
+          : GridView.count(
+              crossAxisCount: 2,
+              children: pokeHub.pokemon
+                  .map((Pokemon poke) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PokeDetail(
+                                          pokemon: poke,
+                                        )));
+                          },
+                          child: Card(
+                            color: Colors.grey[300],
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
                             ),
-                            Hero( tag: poke.name,
-                                                          child: Text(poke.name,
-                              style: TextStyle(fontSize: 22,
-                              fontWeight: FontWeight.w500 ),
-                              ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Hero(
+                                  tag: poke.img,
+                                  child: Container(
+                                    height: 100.0,
+                                    width: 100.0,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: NetworkImage(poke.img))),
+                                  ),
+                                ),
+                                Hero(
+                                  tag: poke.name,
+                                  child: Text(
+                                    poke.name,
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                  ))
-              .toList()),
+                      ))
+                  .toList()),
     );
   }
 }

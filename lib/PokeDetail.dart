@@ -13,36 +13,40 @@ class PokeDetail extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height/1.5,
           width: MediaQuery.of(context).size.width/1,
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18),
-            ),
-            
-            child: Column(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: SingleChildScrollView(
+              child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18),
+              ),
               
-              children: <Widget>[
-                SizedBox(height: 100,),
-                //Text(pokemon.name,style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),SizedBox(height: 40,),
-                Text('Height:${pokemon.height}',style:TextStyle(fontSize: 18,)),//SizedBox(height: 10,),
-                Text('Weight:${pokemon.weight}',style:TextStyle(fontSize: 18,)),//SizedBox(height: 10,),
-                Text('Types',style:TextStyle(fontSize: 18,)),//SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: pokemon.type.map((t) => FilterChip(label: Text(t,style:TextStyle(fontSize: 15,)),backgroundColor: Colors.amber, onSelected: (bool){})).toList(),
+              child: Column(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                
+                children: <Widget>[
+                  SizedBox(height: 120,),
+                  //Text(pokemon.name,style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold)),SizedBox(height: 40,),
+                  Text('Height:${pokemon.height}',style:TextStyle(fontSize: 18,)),SizedBox(height: 10,),
+                  Text('Weight:${pokemon.weight}',style:TextStyle(fontSize: 18,)),SizedBox(height: 10,),
+                  Text('Types',style:TextStyle(fontSize: 18,)),SizedBox(height: 10,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: pokemon.type.map((t) => FilterChip(label: Text(t,style:TextStyle(fontSize: 15,)),backgroundColor: Colors.amber, onSelected: (bool){})).toList(),
 
-                  
-                  
-                ),//SizedBox(height: 20,),
-                Text('Weakness',style:TextStyle(fontSize: 18,)),//SizedBox(height: 20,),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: pokemon.weaknesses.map((w) => FilterChip(label: Text(w,style: TextStyle(color: Colors.white,fontSize: 15),),backgroundColor: Colors.deepPurple, onSelected: (bool){})).toList(),
-                  
-                ),
-                //SizedBox(height: 50,),
-              ],
+                    
+                    
+                  ),SizedBox(height: 20,),
+                  Text('Weakness',style:TextStyle(fontSize: 18,)),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Wrap(spacing: 10,
+                      
+                      children: pokemon.weaknesses.map((w) => FilterChip(label: Text(w,style: TextStyle(color: Colors.white,fontSize: 15),),backgroundColor: Colors.deepPurple, onSelected: (bool){})).toList(),
+                      
+                    ),
+                  ),
+                  //SizedBox(height: 50,),
+                ],
+              ),
             ),
           ),
         ),
@@ -76,8 +80,8 @@ class PokeDetail extends StatelessWidget {
             height: 100.0,
             decoration: new BoxDecoration(
             color: Colors.red[400],
-            boxShadow: [
-            new BoxShadow(blurRadius: 20.0)
+            boxShadow: [ 
+            new BoxShadow(blurRadius: 9.0, offset: Offset(0, 10),color: Colors.grey[800])
             
             ],
             borderRadius: new BorderRadius.vertical(
@@ -86,9 +90,7 @@ class PokeDetail extends StatelessWidget {
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              
               children: <Widget>[
-                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
