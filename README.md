@@ -1,6 +1,10 @@
 # PokedexApp
 
-A new Flutter project.
+Pokedex App is written in Flutter ,It simply display some detail of chosen pokemon
+
+# Screenshots
+
+<img src = "screenshots/3.jpg" width ="340">
 
 ## Getting Started
 
