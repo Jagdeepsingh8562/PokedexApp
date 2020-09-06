@@ -4,7 +4,7 @@ Pokedex App is written in Flutter ,It simply display some detail of chosen pokem
 
 # Screenshots
 
-<img src = "screenshots/3.jpg" width ="340">
+<img src = "screenshots/3.jpg" width ="400">
 
 ## Getting Started
 
