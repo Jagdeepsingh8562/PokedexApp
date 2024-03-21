@@ -1,6 +1,6 @@
-import 'package:PokedexApp/Pokemon.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_app/Pokemon.dart';
 
 class PokeDetail extends StatelessWidget {
   final Pokemon pokemon;
@@ -33,10 +33,7 @@ class PokeDetail extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text('Types',
-                    style: TextStyle(
-                      fontSize: 18,
-                    )),
+                Text('Types', style: TextStyle(fontSize: 18)),
                 SizedBox(
                   height: 20,
                 ),
@@ -90,7 +87,8 @@ class PokeDetail extends StatelessWidget {
                 height: 200,
                 width: 200,
                 decoration: BoxDecoration(
-                    image: DecorationImage(image: CachedNetworkImageProvider(pokemon.img))),
+                    image: DecorationImage(
+                        image: CachedNetworkImageProvider(pokemon.img))),
               ),
             ),
           )
@@ -100,7 +98,6 @@ class PokeDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red[400],
-
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -155,10 +152,10 @@ class PokeDetail extends StatelessWidget {
                         radius: 8.0,
                       ),
                       SizedBox(
-                        width: 55,
+                        width: 65,
                       ),
                       Text(
-                        'Pokedex',
+                        'PokeDex',
                         style: TextStyle(fontSize: 25, color: Colors.white),
                       ),
                     ],
@@ -178,9 +175,6 @@ class PokeDetail extends StatelessWidget {
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton.extended(onPressed: (){
-
-      // },icon: Icon(Icons.navigate_next,), label: Text('Evolve'),backgroundColor: Colors.red[600],),
     );
   }
 }

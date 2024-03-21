@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:PokedexApp/PokeDetail.dart';
-import 'package:PokedexApp/Pokemon.dart';
+import 'package:pokedex_app/PokeDetail.dart';
+import 'package:pokedex_app/Pokemon.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
