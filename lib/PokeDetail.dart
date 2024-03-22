@@ -101,7 +101,6 @@ class PokeDetail extends StatelessWidget {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
