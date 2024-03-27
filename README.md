@@ -1,5 +1,10 @@
 # PokedexApp
 
+Pokedex App is written in Flutter ,It simply display some detail of chosen pokemon
+
+# Screenshots
+
+<img src = "screenshots/3.jpg" width ="400">
 
 Pokedex App is written in Flutter ,It simply display some detail of chosen pokemon
 
