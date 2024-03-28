@@ -61,7 +61,7 @@ class Pokemon {
       type: List<String>.from(json['types'].map((x) => x['type']['name'])),
       height: json['height'],
       weight: json['weight'],
-      weaknesses: List<String>.from(json['weaknesses']),
+      weaknesses: List<String>.from(json['types'].map((x) => x['type']['name'])),
       nextEvolution: json['next_evolution'] != null
           ? List<NextEvolution>.from(
               json['next_evolution'].map((x) => NextEvolution.fromJson(x)))
