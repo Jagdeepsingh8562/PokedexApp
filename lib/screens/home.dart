@@ -1,10 +1,11 @@
 import 'dart:convert';
 
-import 'package:pokedex_app/PokeDetail.dart';
+import 'package:flutter/services.dart';
 import 'package:pokedex_app/Pokemon.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pokedex_app/models/PokeDetail.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -33,6 +34,12 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.red));
     return Scaffold(
         backgroundColor: Colors.grey[200],
         appBar: AppBar(
