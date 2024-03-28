@@ -58,7 +58,7 @@ class Pokemon {
       id: json['id'],
       name: json['name'],
       img: json['sprites']["other"]["official-artwork"]["front_default"],
-      type: List<String>.from(json['type']),
+      type: List<String>.from(json['types'].map((x) => x['type']['name'])),
       height: json['height'],
       weight: json['weight'],
       weaknesses: List<String>.from(json['weaknesses']),
